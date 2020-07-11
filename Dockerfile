@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM python:3.8
 LABEL maintainer="TeskaLabs Ltd <support@teskalabs.com>"
 
 COPY ./docker/start.sh /start.sh
@@ -8,16 +8,16 @@ COPY ./webui /opt/coingame/webui
 COPY ./docker/coingamesvr.conf /opt/coingame/etc/coingamesvr.conf
 
 RUN set -x \
-	&& apk upgrade --no-cache \
-	&& apk add --update --no-cache \
+	&& apt-get update \
+	&& apt-get -y install \
 		erlang \
-		erlang-sasl \
+		erlang-base \
 		erlang-mnesia \
 		erlang-ssl \
 		erlang-eldap \
 		erlang-xmerl \
 		erlang-os-mon \
-		xz \
+		xz-utils \
 		python3 \
 		pwgen \
 	# Install RabbitMQ
