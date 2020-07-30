@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3
 LABEL maintainer="TeskaLabs Ltd <support@teskalabs.com>"
 
 COPY ./docker/start.sh /start.sh
@@ -28,7 +28,7 @@ RUN set -x \
 	&& python3 -m ensurepip \
 	&& rm -r /usr/lib/python*/ensurepip \
 	&& pip3 install --upgrade pip setuptools \
-	&& pip3 install --upgrade aiohttp pika pyyaml asab \
+	&& pip3 install --upgrade aiohttp pika asab PyYAML\
 	# Finalize
 	&& chmod a+x /start.sh
 
