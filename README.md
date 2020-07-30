@@ -245,6 +245,6 @@ You can quickly start CoinGame server in the Docker.
 
  3. Start a Docker container
 
-    `docker run coingame`
+    `docker run -it -p 80:80 -p 5672:5672 coingame`
 
 The containers offers a HTTP service (API and a simple UI) on a port TCP/80 and RabbitMQ/AMQP server on a port TCP/5672.
