@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/bash
 
 echo "Welcome to a CoinGame!"
 echo "More info at https://github.com/TeskaLabs/coingame"
@@ -22,4 +22,4 @@ sleep 5
 
 echo "Starting ..."
 
-(cd /opt/coingame && /usr/bin/python3.6 coingamesvr.py -c /opt/coingame/etc/coingamesvr.conf)
+(cd /opt/coingame && python --version && python coingamesvr.py -c /opt/coingame/etc/coingamesvr.conf)
