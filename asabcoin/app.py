@@ -12,6 +12,7 @@ class AsabCoinApplication(asab.Application):
 
 
 	async def initialize(self):
+		print("Initializing...")
 		self.AdminToken = None
 
 		# Load the web service module
@@ -44,7 +45,7 @@ class AsabCoinApplication(asab.Application):
 		# Prepare a message broker
 		from asab.mom.amqp import AMQPBroker
 		self.Broker = AMQPBroker(self, config={
-			'url': 'amqp://guest:guest@localhost/',
+			'url': 'amqp://coingamesvr:{}@localhost/'.format(os.environ.get('RABBITMQ_PWD')),
 			'exchange': 'amq.topic',
 		})
 
